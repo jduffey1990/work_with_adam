@@ -6,11 +6,12 @@
 
 ## What's In This Folder
 
-| File | What It Is | How to Use It |
+| File / Folder | What It Is | How to Use It |
 |---|---|---|
 | `README.md` | This file — your guide to everything here | You're reading it now! |
 | `flock_plan.md` | The full feature plan written in plain English | Open it in any text editor or on GitHub to read through the feature details |
 | `flock_mockup.jsx` | Interactive screen mockups of the app | Follow the **"Viewing the Mockups"** steps below to see them in your browser |
+| `viewer/` | A pre-built mockup viewer (React + Vite) | Used to run the mockups locally — setup instructions below |
 
 ---
 
@@ -43,36 +44,43 @@ node --version
 
 You should see a version number like `v20.x.x`. If you do, you're good.
 
-#### Step 2 — Create the Mockup Viewer
+#### Step 2 — Install Dependencies
 
-Open **Terminal** (Mac) or **Command Prompt** (Windows), then copy and paste these commands **one at a time**, pressing Enter after each:
+Open **Terminal** (Mac) or **Command Prompt** (Windows), navigate to the `viewer` folder inside this repo, and install the dependencies:
 
 ```bash
-cd ~/Desktop
-npm create vite@latest flock-mockups -- --template react
-cd flock-mockups
+cd path/to/this-repo/viewer
+npm install
+```
+
+Replace `path/to/this-repo` with wherever you downloaded or cloned this folder. For example, if it's on your Desktop:
+
+```bash
+cd ~/Desktop/my-flock/viewer
 npm install
 ```
 
 #### Step 3 — Add the Mockup File
 
-Copy the `flock_mockup.jsx` file from this folder into the mockup viewer:
+Copy the `flock_mockup.jsx` file from the root of this repo into the viewer:
 
 - **Mac:**
   ```bash
-  cp flock_mockup.jsx ~/Desktop/flock-mockups/src/App.jsx
+  cp flock_mockup.jsx viewer/src/App.jsx
   ```
 - **Windows:**
   ```bash
-  copy flock_mockup.jsx %USERPROFILE%\Desktop\flock-mockups\src\App.jsx
+  copy flock_mockup.jsx viewer\src\App.jsx
   ```
 
-Or just do it manually: find `flock_mockup.jsx` in this folder, rename a copy to `App.jsx`, and drop it into the `flock-mockups/src/` folder on your Desktop, replacing the file that's already there.
+Or just do it manually: find `flock_mockup.jsx` in this folder, rename a copy to `App.jsx`, and drop it into the `viewer/src/` folder, replacing the file that's already there.
 
 ### Viewing the Mockups (Do This Anytime)
 
+From the repo root:
+
 ```bash
-cd ~/Desktop/flock-mockups
+cd viewer
 npm run dev
 ```
 
@@ -102,7 +110,6 @@ If this repo is on GitHub, click the **Issues** tab at the top of the page and c
 
 - *"QR code — should we also support a share link?"*
 - *"Naming — I prefer 'My Community' over 'My Flock'"*
-- *"Audio — I want to record my own voice, not AI"*
 
 ### Option C — Just Tell Me
 
@@ -128,9 +135,9 @@ These are pulled straight from the feature plan — no need to answer all of the
 | What | Command |
 |---|---|
 | Install Node.js | Download from https://nodejs.org |
-| Create mockup viewer (once) | `cd ~/Desktop && npm create vite@latest flock-mockups -- --template react && cd flock-mockups && npm install` |
-| Add mockup file (once) | Copy `flock_mockup.jsx` → `~/Desktop/flock-mockups/src/App.jsx` |
-| View mockups | `cd ~/Desktop/flock-mockups && npm run dev` |
+| Install dependencies (once) | `cd viewer && npm install` |
+| Add mockup file (once) | Copy `flock_mockup.jsx` → `viewer/src/App.jsx` |
+| View mockups | `cd viewer && npm run dev` |
 | Stop the viewer | Press `Ctrl + C` in the terminal |
 
 ---
@@ -142,14 +149,7 @@ A few terms you'll see in the plan, in case they're unfamiliar:
 | Term | What It Means |
 |---|---|
 | **Flock Member** | Someone who follows a leader and receives their prayers in the app |
-| **Flock Leader** | A minister, pastor, teacher, etc. who creates and publishes prayers |
-| **Prayer Warrior** | The paid subscription tier that unlocks leader tools and premium voices |
-| **QR Code** | That square barcode thing you scan with your phone camera |
-| **TTS (Text-to-Speech)** | Technology that turns written text into spoken audio |
-| **S3** | Amazon's cloud storage — where audio files live so anyone can listen |
-| **SwiftUI** | Apple's toolkit for building iPhone apps (you don't need to worry about this) |
-| **Segmented Control** | Those little toggle buttons at the top of a screen (like "My Prayers" / "Pray On It") |
-
----
-
-*Last updated: March 2026. Everything here is a draft — your feedback shapes what gets built.*
+| **Flock Leader** | A minister, pastor, teacher, etc. who publishes prayers to their community |
+| **QR Code** | A scannable square barcode — the leader shows it, members scan it to join |
+| **Prayer Warrior** | The premium subscription tier required for Flock Leaders |
+| **Text-to-Speech (TTS)** | Technology that reads prayer text aloud in a natural-sounding voice |
