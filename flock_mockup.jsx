@@ -163,6 +163,7 @@ const NEW_TABS = [
   { label: "Settings", icon: "⚙️" },
 ];
 
+
 const PrayerCard = ({ title, preview, author }) => (
   <div style={{ padding: "12px 16px", borderBottom: `0.5px solid ${COLORS.separator}` }}>
     {author && (
